@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+
+	<head>
+		<meta charset="utf-8">
+		<title> Sudoku </title>
+		<link rel="icon" href="assets/icon/sudoku192.png" />
+		<link rel="stylesheet" href="stylesheet/style.css" />
+		<link rel="stylesheet" media="screen and (max-width: 500px) , (max-height: 560px)" href="stylesheet/styleMobile.css" />
+		<link rel="stylesheet" media="screen and (max-width: 370px) , (max-height: 440px)" href="stylesheet/styleSmallMobile.css" />
+		<link rel="stylesheet" media="screen and (max-height: 360px)" href="stylesheet/styleVerySmallMobile.css" />
+		<link rel="stylesheet" media="screen and (orientation: landscape)" href="stylesheet/row.css" />
+		<link rel="manifest" href="/manifest.json"/>
+	</head>
+
+	<script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+	<script>
+	  var config = {
+	    apiKey: "AIzaSyCrPKT___NSS4mHXYMTUCtofl7xrw21eoM",
+	    authDomain: "sudoku-25b5e.firebaseapp.com",
+	    databaseURL: "https://sudoku-25b5e.firebaseio.com",
+	    projectId: "sudoku-25b5e",
+	    storageBucket: "",
+	    messagingSenderId: "19162224604"
+	  };
+	  firebase.initializeApp(config);
+	</script>
+
+
+	<body>
+
+		<audio id="audioPlayer" autoplay="autoplay" loop="true" src="assets/sounds/zen.mp3" type="audio/mp3"></audio>
+		<audio id="audioClick" src="assets/sounds/click.mp3" type="audio/mp3"></audio>
+
+		<div id="block1">
+			<header>
+				<button id="pauseButton" onclick="pause();"> Pause </button>
+				<h1 id="chronoMinute"></h1>
+				<h1> : </h1>
+				<h1 id="chronoSeconde"></h1>
+				<button onclick="reset();"> Reset </button>
+			</header>	
+
+			<div id="grille">
+				<div class="line" id="line1">
+					<button class="case" id="c11" onclick="caseclick(11);"> </button>
+					<button class="case" id="c12" onclick="caseclick(12);"> </button>
+					<button class="case" id="c13" onclick="caseclick(13);"> </button>
+					<button class="case" id="c14" onclick="caseclick(14);"> </button>
+					<button class="case" id="c15" onclick="caseclick(15);"> </button>
+					<button class="case" id="c16" onclick="caseclick(16);"> </button>
+					<button class="case" id="c17" onclick="caseclick(17);"> </button>
+					<button class="case" id="c18" onclick="caseclick(18);"> </button>
+					<button class="case" id="c19" onclick="caseclick(19);"> </button>
+				</div>
+				<div class="line" id="line2"> 
+					<button class="case" id="c21" onclick="caseclick(21);"> </button>
+					<button class="case" id="c22" onclick="caseclick(22);"> </button>
+					<button class="case" id="c23" onclick="caseclick(23);"> </button>
+					<button class="case" id="c24" onclick="caseclick(24);"> </button>
+					<button class="case" id="c25" onclick="caseclick(25);"> </button>
+					<button class="case" id="c26" onclick="caseclick(26);"> </button>
+					<button class="case" id="c27" onclick="caseclick(27);"> </button>
+					<button class="case" id="c28" onclick="caseclick(28);"> </button>
+					<button class="case" id="c29" onclick="caseclick(29);"> </button>
+				</div>
+				<div class="line" id="line3"> 
+					<button class="case" id="c31" onclick="caseclick(31);"> </button>
+					<button class="case" id="c32" onclick="caseclick(32);"> </button>
+					<button class="case" id="c33" onclick="caseclick(33);"> </button>
+					<button class="case" id="c34" onclick="caseclick(34);"> </button>
+					<button class="case" id="c35" onclick="caseclick(35);"> </button>
+					<button class="case" id="c36" onclick="caseclick(36);"> </button>
+					<button class="case" id="c37" onclick="caseclick(37);"> </button>
+					<button class="case" id="c38" onclick="caseclick(38);"> </button>
+					<button class="case" id="c39" onclick="caseclick(39);"> </button>
+				</div>
+				<div class="line" id="line4"> 
+					<button class="case" id="c41" onclick="caseclick(41);"> </button>
+					<button class="case" id="c42" onclick="caseclick(42);"> </button>
+					<button class="case" id="c43" onclick="caseclick(43);"> </button>
+					<button class="case" id="c44" onclick="caseclick(44);"> </button>
+					<button class="case" id="c45" onclick="caseclick(45);"> </button>
+					<button class="case" id="c46" onclick="caseclick(46);"> </button>
+					<button class="case" id="c47" onclick="caseclick(47);"> </button>
+					<button class="case" id="c48" onclick="caseclick(48);"> </button>
+					<button class="case" id="c49" onclick="caseclick(49);"> </button>
+				</div>
+				<div class="line" id="line5"> 
+					<button class="case" id="c51" onclick="caseclick(51);"> </button>
+					<button class="case" id="c52" onclick="caseclick(52);"> </button>
+					<button class="case" id="c53" onclick="caseclick(53);"> </button>
+					<button class="case" id="c54" onclick="caseclick(54);"> </button>
+					<button class="case" id="c55" onclick="caseclick(55);"> </button>
+					<button class="case" id="c56" onclick="caseclick(56);"> </button>
+					<button class="case" id="c57" onclick="caseclick(57);"> </button>
+					<button class="case" id="c58" onclick="caseclick(58);"> </button>
+					<button class="case" id="c59" onclick="caseclick(59);"> </button>
+				</div>
+				<div class="line" id="line6"> 
+					<button class="case" id="c61" onclick="caseclick(61);"> </button>
+					<button class="case" id="c62" onclick="caseclick(62);"> </button>
+					<button class="case" id="c63" onclick="caseclick(63);"> </button>
+					<button class="case" id="c64" onclick="caseclick(64);"> </button>
+					<button class="case" id="c65" onclick="caseclick(65);"> </button>
+					<button class="case" id="c66" onclick="caseclick(66);"> </button>
+					<button class="case" id="c67" onclick="caseclick(67);"> </button>
+					<button class="case" id="c68" onclick="caseclick(68);"> </button>
+					<button class="case" id="c69" onclick="caseclick(69);"> </button>
+				</div>
+				<div class="line" id="line7"> 
+					<button class="case" id="c71" onclick="caseclick(71);"> </button>
+					<button class="case" id="c72" onclick="caseclick(72);"> </button>
+					<button class="case" id="c73" onclick="caseclick(73);"> </button>
+					<button class="case" id="c74" onclick="caseclick(74);"> </button>
+					<button class="case" id="c75" onclick="caseclick(75);"> </button>
+					<button class="case" id="c76" onclick="caseclick(76);"> </button>
+					<button class="case" id="c77" onclick="caseclick(77);"> </button>
+					<button class="case" id="c78" onclick="caseclick(78);"> </button>
+					<button class="case" id="c79" onclick="caseclick(79);"> </button>
+				</div>
+				<div class="line" id="line8"> 
+					<button class="case" id="c81" onclick="caseclick(81);"> </button>
+					<button class="case" id="c82" onclick="caseclick(82);"> </button>
+					<button class="case" id="c83" onclick="caseclick(83);"> </button>
+					<button class="case" id="c84" onclick="caseclick(84);"> </button>
+					<button class="case" id="c85" onclick="caseclick(85);"> </button>
+					<button class="case" id="c86" onclick="caseclick(86);"> </button>
+					<button class="case" id="c87" onclick="caseclick(87);"> </button>
+					<button class="case" id="c88" onclick="caseclick(88);"> </button>
+					<button class="case" id="c89" onclick="caseclick(89);"> </button>
+				</div>
+				<div class="line" id="line9"> 
+					<button class="case" id="c91" onclick="caseclick(91);"> </button>
+					<button class="case" id="c92" onclick="caseclick(92);"> </button>
+					<button class="case" id="c93" onclick="caseclick(93);"> </button>
+					<button class="case" id="c94" onclick="caseclick(94);"> </button>
+					<button class="case" id="c95" onclick="caseclick(95);"> </button>
+					<button class="case" id="c96" onclick="caseclick(96);"> </button>
+					<button class="case" id="c97" onclick="caseclick(97);"> </button>
+					<button class="case" id="c98" onclick="caseclick(98);"> </button>
+					<button class="case" id="c99" onclick="caseclick(99);"> </button>
+				</div>		
+			</div>
+		</div>
+		<div id="pauseScreen" class="hiddenScreen">
+			<h1> Pause : </h1 >
+			<button id="resumeButton" onclick="resume();"> Resume </button>
+			<button id="newGame" onclick="location.reload();"> New Game </button>
+			<button id="bestTimeButton" onclick="highscores();"> High Scores </button>
+			<button id="settingButton" onclick="settings();"> Settings </button>
+		</div>
+
+		<div id="highScoreScreen" class="hiddenScreen">
+			<h1> High Scores : </h1>
+			<ul id="listScores">
+			</ul>
+			<button id="resumeButton" onclick="resume();"> Resume </button>
+		</div>
+
+		<div id="settingScreen" class="hiddenScreen">
+			<h1> Setting : </h1 >
+			<button id="resumeButton" onclick="resume();"> Resume </button>
+			<button id="musicButton" onclick="musicSwitch();"> Music </button>
+			<button id="bestTimeResetButton"> Reset High Scores </button>
+			<button id="BackgroundsButton" onclick="backgroundSetting();"> Backgrounds </button>
+		</div>
+
+		<div id="backgroundSettingScreen" class="hiddenScreen">
+			<h1> Backgrounds : </h1 >
+			<button id="resumeButton" onclick="resume();"> Resume </button>
+			<button id="bkg1" onclick="background1();"> Tropical </button>
+			<button id="bkg2" onclick="background2();"> Ocean </button>
+			<button id="bkg3" onclick="background3();"> Zen </button>
+		</div>
+
+		<div id="winScreen" class="hiddenScreen">
+			<h1> Sudoku Solved! </h1>
+			<button id="newGame" onclick="location.reload();"> New Game </button>
+		</div>
+
+		<div id="block2">
+
+			<button id="check" onclick="check();"> Check </button>
+
+			<div id="keyboard">
+				<button class="key" id="k1" onclick="keyclick(1);"> 1 </button>
+				<button class="key" id="k2" onclick="keyclick(2);"> 2 </button>
+				<button class="key" id="k3" onclick="keyclick(3);"> 3 </button>
+				<button class="key" id="k4" onclick="keyclick(4);"> 4 </button>
+				<button class="key" id="k5" onclick="keyclick(5);"> 5 </button>
+				<button class="key" id="k6" onclick="keyclick(6);"> 6 </button>
+				<button class="key" id="k7" onclick="keyclick(7);"> 7 </button>
+				<button class="key" id="k8" onclick="keyclick(8);"> 8 </button>
+				<button class="key" id="k9" onclick="keyclick(9);"> 9 </button>
+
+			</div>
+
+		</div>
+		
+		<script type="text/javascript" src="./js/GrilleJSon.js"></script>
+		<script type="text/javascript" src="./js/sudoku.js"></script>
+		
+
+	</body>
+
+</html>		

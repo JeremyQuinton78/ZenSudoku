@@ -1,0 +1,119 @@
+html body
+{
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding-left: 2.5%;
+	padding-right: 2.5%;
+	background: no-repeat;
+}
+
+header
+{
+	width: 450px;
+	display: flex;
+    align-items: center;
+    justify-content: space-between;
+   	margin-bottom: 20px;
+}
+
+button
+{
+	font-size: 31px;
+	font-family: "Arial Black", sans-serif;
+	text-align: center;
+	vertical-align: middle;
+}
+
+h1
+{
+	font-family: Arial ;
+}
+
+#grille
+{
+	height: 450px;
+	width: 450px;
+	display: flex;
+	flex-direction: column;
+	border: 5px solid black;	
+}
+
+.line
+{
+	height: 50px;
+	width: 450px;
+	padding-right: 0;
+	border: 1px solid black;
+	display: flex;
+	flex-direction: row;
+}
+
+#line3, #line6
+{
+	border-bottom: 3px solid black;
+}
+
+#c13, #c23, #c33, #c43, #c53, #c63, #c73, #c83, #c93,
+#c16, #c26, #c36, #c46, #c56, #c66, #c76, #c86, #c96
+{
+	border-right: 3px solid black;
+} 
+
+.case
+{
+	margin-top: 0;
+	margin-bottom: 0;
+	top: 0;
+	width: 50px; 
+	border: 1px solid black;
+}
+
+#block2
+{
+	display: flex;
+	align-items: center;
+    flex-direction: column;
+}
+
+#check
+{
+	margin-top: 20px;
+}
+
+#keyboard
+{
+	width: 270px;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	margin-top: 20px;
+}
+
+.key
+{
+	height: 75px;
+	width: 75px;	
+}
+
+.hiddenScreen
+{
+	top : 90px;
+	width: 450px;
+	height: 450px;
+	background-color: #F0F0F0;
+	position: fixed ;
+	border : 5px solid black ;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+
+.hiddenScreen button
+{
+	margin-bottom: 30px ;
+}

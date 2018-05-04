@@ -1,0 +1,8 @@
+html body
+{
+	flex-direction: row;
+}
+.hiddenScreen
+{
+	width:  710px ;
+}	

@@ -1,0 +1,71 @@
+button
+{
+	font-size: 13px;
+}
+
+header
+{
+	width: 252px;
+}	
+
+#grille
+{
+	height: 252px;
+	width: 252px;
+}
+
+.line
+{
+	height: 27px;
+	width: 252px;
+	border: 1px solid black;
+}
+
+#line3, #line6
+{
+	border-bottom: 2px solid black;
+}
+
+#c13, #c23, #c33, #c43, #c53, #c63, #c73, #c83, #c93,
+#c16, #c26, #c36, #c46, #c56, #c66, #c76, #c86, #c96
+{
+	border-right: 2px solid black;
+} 
+
+.case
+{
+	margin-top: 0;
+	margin-bottom: 0;
+	top: 0;
+	width: 27px; 
+	border: 1px solid black;
+}
+
+#check
+{
+	margin-top: 12px;
+}
+
+#keyboard
+{
+	width: 151px;
+	margin-top: 12px;
+}
+
+.key
+{
+	height: 42px;
+	width: 42px;	
+}
+
+.hiddenScreen
+{
+	top: 80px;
+	width: 260px;
+	height: 260px;
+}
+
+.hiddenScreen button
+{
+	margin-bottom: 16px ;
+}

@@ -1,0 +1,29 @@
+{
+  "short_name": "Sudoku",
+  "name": "The Best Sodoku EVER!!",
+  "icons": [
+    {
+      "src": "assers/icon/sudoku48.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "assers/icon/sudoku96.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "assers/icon/sudoku192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ],
+  "start_url": "/public/index.html",
+
+  "display": "standalone",
+
+  "background_color": "#e6fff2",
+  
+  "theme_color": "#e6fff2"
+  
+}
